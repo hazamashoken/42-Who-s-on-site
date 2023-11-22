@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "get-users-onsite"
+version = "0.1.0"
+description = ""
+authors = ["tliangso <earth78203@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+python-dotenv = "^1.0.0"
+google = "^3.0.0"
+google-api-python-client = "^2.108.0"
+google-auth-oauthlib = "^1.1.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
