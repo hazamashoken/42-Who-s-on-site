@@ -21,6 +21,7 @@ CLIENT_ID = os.getenv('CLIENT_ID')
 CLIENT_SECRET = os.getenv('CLIENT_SECRET')
 BASE_URL=os.getenv('BASE_URL') # https://api.intra.42.fr
 SHEET_ID=os.getenv('SHEET_ID') # from the uuid https://docs.google.com/spreadsheets/d/1p04SkQl8uigZ628tKmdSQ2FlJHcD3EFB41c7LXUzgy0/edit#gid=0
+CAMPUS_ID=int(os.getenv('CAMPUS_ID')) # from the uuid https://docs.google.com/spreadsheets/d/1p04SkQl8uigZ628tKmdSQ2FlJHcD3EFB41c7LXUzgy0/edit#gid=0
 
 class AccessToken:
     def __init__(self, token, type, expires_in, scope, created_at, valid_until):
@@ -99,9 +100,9 @@ def get_users_onsite(access_token):
             with open('users.json', 'r') as f:
                 users = json.load(f)
         else:
-            users = get_all_users_of_campus(33, access_token)
+            users = get_all_users_of_campus(CAMPUS_ID, access_token)
     else:
-        users = get_all_users_of_campus(33, access_token)
+        users = get_all_users_of_campus(CAMPUS_ID, access_token)
     users_onsite = []
 
     for user in users:
