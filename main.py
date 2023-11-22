@@ -200,11 +200,6 @@ def execute_request(users_onsite):
                                             'userEnteredValue': {
                                                 'stringValue': 'Profile URL'
                                             }
-                                        },
-                                        {
-                                            'userEnteredValue': {
-                                                'stringValue': 'Profile Picture'
-                                            }
                                         }
                                     ]
                                 },
@@ -222,12 +217,7 @@ def execute_request(users_onsite):
                                         },
                                         {
                                             'userEnteredValue': {
-                                                'stringValue': user["url"]
-                                            }
-                                        },
-                                        {
-                                            'userEnteredValue': {
-                                                'stringValue': user["image"]["link"]
+                                                'stringValue': f"https://profile.intra.42.fr/users/{user['login']}"
                                             }
                                         }
                                     ]
@@ -252,6 +242,7 @@ def main():
     print('Getting users on site...')
     users_onsite = get_users_onsite(access_token)
     users_onsite.sort(key=lambda x: x['location'])
+    print("Number of users on site: " + str(len(users_onsite)))
     print('Done!')
     print('Adding users on site to google sheets...')
     url = execute_request(users_onsite)

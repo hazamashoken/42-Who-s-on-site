@@ -2,6 +2,24 @@
 ## Description
 This is a simple python script that will get the list of users currently on site and add it to google sheets.
 
+## Requirements
+- python3
+- poetry
+- google client keys in `credentials.json`
+
+
+## links
+- https://console.cloud.google.com/apis/api/sheets.googleapis.com/
+
+## Installation
+```bash
+poetry install
+```
+
+## Usage
+```bash
+poetry run main.py
+```
 
 ### .env
 ```
@@ -17,3 +35,6 @@ SHEET_ID=
 # 42 campus id
 CAMPUS_ID=
 ```
+
+### Author
+- [Thanapol Liangsoonthornsit](https://github.com/hazamashoken)
